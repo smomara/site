@@ -31,6 +31,8 @@ COPY --from=builder /app/main .
 COPY --from=builder /app/templates ./templates
 COPY --from=builder /app/static ./static
 
+ENV GOOGLE_CLOUD_RUN_SERVICE_URL=https://site-m5svpyta6q-uc.a.run.app
+
 # Expose port 8080
 EXPOSE 8080
 
