@@ -36,6 +36,7 @@ func main() {
 			"ServiceURL": serviceURL,
 		}
 		template.RenderTemplate(w, "index.html", data)
+
 		w.SendResponse()
 	})
 
