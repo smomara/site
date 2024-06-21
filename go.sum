@@ -1,0 +1,6 @@
+github.com/smomara/gossamer/router v0.0.0-20240621215327-25420704f654 h1:DXU29+UaA29YwvZG1dQRLacMyzV/qGLTXhLVthusHBM=
+github.com/smomara/gossamer/router v0.0.0-20240621215327-25420704f654/go.mod h1:A/h4+AthBFLJtOb09zGAaYTMKVrGfqOwqqH5sbUQnTY=
+github.com/smomara/gossamer/static v0.0.0-20240621215327-25420704f654 h1:WeyGvda/gZGp/pN4TMIAvdZOGkieBlaADXV/F5/8Bgs=
+github.com/smomara/gossamer/static v0.0.0-20240621215327-25420704f654/go.mod h1:16lRB8IY3K8NW9OJd/D/OUoMgHQtkcFYm2prn1jU5UE=
+github.com/smomara/gossamer/template v0.0.0-20240621215327-25420704f654 h1:0OdtxZcw14opT2/8jxLPQUGMO4NjkFfCouPTkmnJBdQ=
+github.com/smomara/gossamer/template v0.0.0-20240621215327-25420704f654/go.mod h1:MlRza2ktBp65Q59QWV8eEvL/8+5gkkAGKwbXRYuFC4o=
