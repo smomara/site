@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net"
+	"os"
 
 	"github.com/smomara/gossamer/router"
 	"github.com/smomara/gossamer/static"
@@ -17,23 +18,33 @@ func main() {
 	}
 
 	r := router.NewRouter()
-
 	static.ServeStaticFiles(r, "/static", "./static")
+
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+
+	serviceURL := os.Getenv("GOOGLE_CLOUD_RUN_SERVICE_URL")
+	if serviceURL == "" {
+		serviceURL = "http://localhost:" + port
+	}
 
 	r.AddRoute("GET", "/", func(w *router.Response, r *router.Request) {
 		data := map[string]interface{}{
-			"Title": "Sean O'Mara",
+			"Title":      "Sean O'Mara",
+			"ServiceURL": serviceURL,
 		}
 		template.RenderTemplate(w, "index.html", data)
 		w.SendResponse()
 	})
 
-	listener, err := net.Listen("tcp", ":8080")
+	listener, err := net.Listen("tcp", ":"+port)
 	if err != nil {
 		log.Fatalf("Error starting server: %v\n", err)
 	}
 
-	fmt.Println("Personal website is live at http://localhost:8080")
+	fmt.Printf("Personal website is live at %s\n", serviceURL)
 
 	for {
 		conn, err := listener.Accept()
